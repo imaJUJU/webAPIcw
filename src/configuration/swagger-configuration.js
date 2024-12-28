@@ -21,7 +21,7 @@ const swaggerOptions = {
               ]
             : [
                   {
-                      url: 'https://ntcseatresapp-1234.herokuapp.com/', // Hosted server
+                      url: 'https://ntcseatreservation.onrender.com/', // Hosted server
                   },
               ],
         components: {
