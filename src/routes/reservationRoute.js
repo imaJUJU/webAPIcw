@@ -12,7 +12,7 @@ const router = express.Router();
 
 /**
  * @swagger
- * /api/v1/lk/reservations:
+ * /ntc/v1/reservations:
  *   post:
  *     summary: Create a new reservation
  *     tags: [Reservation]
@@ -54,7 +54,7 @@ router.post("/", createReservationController);
 
 /**
  * @swagger
- * /api/v1/lk/reservations/{id}:
+ * /ntc/v1/reservations/{id}:
  *   get:
  *     summary: Get reservation by ID
  *     tags: [Reservation]
@@ -75,7 +75,7 @@ router.get("/:id", getReservationByIdController);
 
 /**
  * @swagger
- * /api/v1/lk/reservations/{id}:
+ * /ntc/v1/reservations/{id}:
  *   put:
  *     summary: Update a reservation
  *     tags: [Reservation]
@@ -102,7 +102,7 @@ router.put("/:id", updateReservationByIdController);
 
 /**
  * @swagger
- * /api/v1/lk/reservations/{id}:
+ * /ntc/v1/reservations/{id}:
  *   delete:
  *     summary: Delete a reservation
  *     tags: [Reservation]
@@ -123,7 +123,7 @@ router.delete("/:id", deleteReservationByIdController);
 
 /**
  * @swagger
- * /api/v1/lk/reservations/commuter/{commuterId}:
+ * /ntc/v1/reservations/commuter/{commuterId}:
  *   get:
  *     summary: Get reservations by commuter ID
  *     tags: [Reservation]
@@ -144,7 +144,7 @@ router.get("/commuter/:commuterId", getReservationsByCommuterIdController);
 
 /**
  * @swagger
- * /api/v1/lk/reservations/route/{routeId}:
+ * /ntc/v1/reservations/route/{routeId}:
  *   get:
  *     summary: Get reservations by route ID
  *     tags: [Reservation]

@@ -14,7 +14,7 @@ const router = express.Router();
 
 /**
  * @swagger
- * /api/v1/lk/commuter/create:
+ * /ntc/v1/commuter/create:
  *   post:
  *     summary: Create a new commuter
  *     tags: [Commuter]
@@ -54,7 +54,7 @@ router.post('/create', create);
 
 /**
  * @swagger
- * /api/v1/lk/commuter:
+ * /ntc/v1/commuter:
  *   get:
  *     summary: Get all commuters
  *     tags: [Commuter]
@@ -69,7 +69,7 @@ router.get('/', getAll);
 
 /**
  * @swagger
- * /api/v1/lk/commuter/{id}:
+ * /ntc/v1/commuter/{id}:
  *   get:
  *     summary: Get a commuter by ID
  *     tags: [Commuter]
@@ -91,7 +91,7 @@ router.get('/:id', getById);
 
 /**
  * @swagger
- * /api/v1/lk/commuter/{id}:
+ * /ntc/v1/commuter/{id}:
  *   put:
  *     summary: Update a commuter by ID
  *     tags: [Commuter]
@@ -136,7 +136,7 @@ router.put('/:id', updateById);
 
 /**
  * @swagger
- * /api/v1/lk/commuter/{id}:
+ * /ntc/v1/commuter/{id}:
  *   delete:
  *     summary: Delete a commuter by ID
  *     tags: [Commuter]
@@ -158,7 +158,7 @@ router.delete('/:id', deleteById);
 
 /**
  * @swagger
- * /api/v1/lk/commuter/province/{province}:
+ * /ntc/v1/commuter/province/{province}:
  *   get:
  *     summary: Get commuters by province
  *     tags: [Commuter]
@@ -178,7 +178,7 @@ router.get('/province/:province', getByProvince);
 
 /**
  * @swagger
- * /api/v1/lk/commuter/city/{city}:
+ * /ntc/v1/commuter/city/{city}:
  *   get:
  *     summary: Get commuters by city
  *     tags: [Commuter]
@@ -198,7 +198,7 @@ router.get('/city/:city', getByCity);
 
 /**
  * @swagger
- * /api/v1/lk/commuter/credential/{credential}:
+ * /ntc/v1/commuter/credential/{credential}:
  *   get:
  *     summary: Get commuter by phone number or email
  *     tags: [Commuter]

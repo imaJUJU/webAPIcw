@@ -8,7 +8,7 @@ const router = express.Router();
 
 /**
  * @swagger
- * /api/v1/lk/tickets/{id}:
+ * /ntc/v1/tickets/{id}:
  *   get:
  *     summary: Get ticket by ID
  *     tags: [Ticket]
@@ -30,7 +30,7 @@ router.get("/:id", getTicketByTicketId);
 
 /**
  * @swagger
- * /api/v1/lk/tickets/reservation/{reservationId}:
+ * /ntc/v1/tickets/reservation/{reservationId}:
  *   get:
  *     summary: Get tickets by reservation ID
  *     tags: [Ticket]

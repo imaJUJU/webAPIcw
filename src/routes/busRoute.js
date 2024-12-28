@@ -11,8 +11,8 @@ const {
     getBusByValidate,
     getBusByBusOperatorId,
     getBusByRouteId,
-} = require('../Controllers/busController');
-const { getRouteById } = require('../Repositories/routeRepository');
+} = require('../controllers/busController');
+const { getRouteById } = require('../dao/routeDao');
 
 const router = express.Router();
 
@@ -25,7 +25,7 @@ const router = express.Router();
 
 /**
  * @swagger
- * /api/v1/lk/buses:
+ * /ntc/v1/buses:
  *   get:
  *     summary: Retrieve all buses
  *     tags: [Buses]
@@ -39,7 +39,7 @@ router.get('/', getAll);
 
 /**
  * @swagger
- * /api/v1/lk/buses:
+ * /ntc/v1/buses:
  *   post:
  *     summary: Create a new bus
  *     tags: [Buses]
@@ -76,7 +76,7 @@ router.post('/', create);
 
 /**
  * @swagger
- * /api/v1/lk/buses/{id}:
+ * /ntc/v1/buses/{id}:
  *   get:
  *     summary: Retrieve a bus by ID
  *     tags: [Buses]
@@ -99,7 +99,7 @@ router.get('/:id', getById);
 
 /**
  * @swagger
- * /api/v1/lk/buses/bus-operator/{busOperatorId}:
+ * /ntc/v1/buses/bus-operator/{busOperatorId}:
  *   get:
  *     summary: Retrieve a bus by ID
  *     tags: [Buses]
@@ -122,7 +122,7 @@ router.get('/bus-operator/:busOperatorId', getBusByBusOperatorId);
 
 /**
  * @swagger
- * /api/v1/lk/buses/route/{routeId}:
+ * /ntc/v1/buses/route/{routeId}:
  *   get:
  *     summary: Retrieve buses by route ID
  *     tags: [Buses]
@@ -145,7 +145,7 @@ router.get('/route/:routeId', getBusByRouteId);
 
 /**
  * @swagger
- * /api/v1/lk/buses/{id}:
+ * /ntc/v1/buses/{id}:
  *   put:
  *     summary: Update a bus by ID
  *     tags: [Buses]
@@ -174,7 +174,7 @@ router.put('/:id', updateById);
 
 /**
  * @swagger
- * /api/v1/lk/buses/{id}:
+ * /ntc/v1/buses/{id}:
  *   delete:
  *     summary: Delete a bus by ID
  *     tags: [Buses]
@@ -197,7 +197,7 @@ router.delete('/:id', deleteById);
 
 /**
  * @swagger
- * /api/v1/lk/buses/search/by-bus-number:
+ * /ntc/v1/buses/search/by-bus-number:
  *   get:
  *     summary: Search buses by registration number
  *     tags: [Buses]
@@ -219,7 +219,7 @@ router.get('/search/by-bus-number', getBusByBusNumber);
 
 /**
  * @swagger
- * /api/v1/lk/buses/search/by-availability:
+ * /ntc/v1/buses/search/by-availability:
  *   get:
  *     summary: Search buses by availability
  *     tags: [Buses]
@@ -241,7 +241,7 @@ router.get('/search/by-availability', getBusByAvailability);
 
 /**
  * @swagger
- * /api/v1/lk/buses/search/by-ctb-private:
+ * /ntc/v1/buses/search/by-ctb-private:
  *   get:
  *     summary: Search buses by type (CTB/Private)
  *     tags: [Buses]
@@ -263,7 +263,7 @@ router.get('/search/by-ctb-private', getBusByCTBorPrivate);
 
 /**
  * @swagger
- * /api/v1/lk/buses/search/by-validation:
+ * /ntc/v1/buses/search/by-validation:
  *   get:
  *     summary: Search buses by validation status
  *     tags: [Buses]

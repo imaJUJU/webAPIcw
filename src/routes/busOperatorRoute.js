@@ -13,7 +13,7 @@ const router = express.Router();
 
 /**
  * @swagger
- * /api/v1/lk/bus-operators:
+ * /ntc/v1/bus-operators:
  *   post:
  *     summary: Create a new bus operator
  *     tags: [Bus Operator]
@@ -43,7 +43,7 @@ router.post('/', create);
 
 /**
  * @swagger
- * /api/v1/lk/bus-operators:
+ * /ntc/v1/bus-operators:
  *   get:
  *     summary: Get all bus operators
  *     tags: [Bus Operator]
@@ -58,7 +58,7 @@ router.get('/', getAll);
 
 /**
  * @swagger
- * /api/v1/lk/bus-operators/{id}:
+ * /ntc/v1/bus-operators/{id}:
  *   get:
  *     summary: Get a bus operator by ID
  *     tags: [Bus Operator]
@@ -80,7 +80,7 @@ router.get('/:id', getById);
 
 /**
  * @swagger
- * /api/v1/lk/bus-operators/{id}:
+ * /ntc/v1/bus-operators/{id}:
  *   put:
  *     summary: Update a bus operator by ID
  *     tags: [Bus Operator]
@@ -119,7 +119,7 @@ router.put('/:id', updateById);
 
 /**
  * @swagger
- * /api/v1/lk/bus-operators/{id}:
+ * /ntc/v1/bus-operators/{id}:
  *   delete:
  *     summary: Delete a bus operator by ID
  *     tags: [Bus Operator]
@@ -141,7 +141,7 @@ router.delete('/:id', deleteById);
 
 /**
  * @swagger
- * /api/v1/lk/bus-operators/phone/{phoneNumber}:
+ * /ntc/v1/bus-operators/phone/{phoneNumber}:
  *   get:
  *     summary: Get a bus operator by phone number
  *     tags: [Bus Operator]
@@ -163,7 +163,7 @@ router.get('/phone/:phoneNumber', getByPhoneNumber);
 
 /**
  * @swagger
- * /api/v1/lk/bus-operators/user/{userId}:
+ * /ntc/v1/bus-operators/user/{userId}:
  *   get:
  *     summary: Get a bus operator by user ID
  *     tags: [Bus Operator]

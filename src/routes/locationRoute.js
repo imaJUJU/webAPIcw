@@ -9,7 +9,7 @@ const router = express.Router();
 
 /**
  * @swagger
- * /api/v1/lk/locations:
+ * /ntc/v1/locations:
  *   post:
  *     summary: Create a new location
  *     tags: [Location]
@@ -37,7 +37,7 @@ router.post("/", create);
 
 /**
  * @swagger
- * /api/v1/lk/locations/route/{routeNo}:
+ * /ntc/v1/locations/route/{routeNo}:
  *   get:
  *     summary: Get locations by route number
  *     tags: [Location]
@@ -61,7 +61,7 @@ router.get("/route/:routeNo", getLocationByRouteNo);
 
 /**
  * @swagger
- * /api/v1/lk/locations/name/{name}:
+ * /ntc/v1/locations/name/{name}:
  *   get:
  *     summary: Get locations by name
  *     tags: [Location]

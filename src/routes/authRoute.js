@@ -5,7 +5,7 @@ const router = express.Router();
 
 /**
  * @swagger
- * /api/v1/lk/auth/register:
+ * /ntc/v1/auth/register:
  *   post:
  *     summary: Register a new user
  *     tags: [Authentication]
@@ -37,7 +37,7 @@ router.post("/register", register);
 
 /**
  * @swagger
- * /api/v1/lk/auth/login:
+ * /ntc/v1/auth/login:
  *   post:
  *     summary: Login a user
  *     tags: [Authentication]
@@ -65,7 +65,7 @@ router.post("/login", login);
 
 /**
  * @swagger
- * /api/v1/lk/auth/verify:
+ * /ntc/v1/auth/verify:
  *   post:
  *     summary: Verify a user
  *     tags: [Authentication]
@@ -89,7 +89,7 @@ router.post("/verify", verify);
 
 /**
  * @swagger
- * /api/v1/lk/auth/forgot:
+ * /ntc/v1/auth/forgot:
  *   post:
  *     summary: Forgot password
  *     tags: [Authentication]
@@ -113,7 +113,7 @@ router.post("/forgot", forgot);
 
 /**
  * @swagger
- * /api/v1/lk/auth/reset:
+ * /ntc/v1/auth/reset:
  *   post:
  *     summary: Reset password
  *     tags: [Authentication]
@@ -139,7 +139,7 @@ router.post("/reset", reset);
 
 /**
  * @swagger
- * /api/v1/lk/auth/update/{id}:
+ * /ntc/v1/auth/update/{id}:
  *   put:
  *     summary: Update user information
  *     tags: [Authentication]
@@ -169,7 +169,7 @@ router.put("/update/:id", update);
 
 /**
  * @swagger
- * /api/v1/lk/auth/delete/{id}:
+ * /ntc/v1/auth/delete/{id}:
  *   delete:
  *     summary: Delete a user
  *     tags: [Authentication]

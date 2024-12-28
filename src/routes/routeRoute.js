@@ -5,7 +5,7 @@ const router = express.Router();
 
 /**
  * @swagger
- * /api/v1/lk/routes:
+ * /ntc/v1/routes:
  *   post:
  *     summary: Create a new route
  *     tags: [Route]
@@ -33,7 +33,7 @@ router.post("/", routeController.create);
 
 /**
  * @swagger
- * /api/v1/lk/routes/{id}:
+ * /ntc/v1/routes/{id}:
  *   get:
  *     summary: Get a route by ID
  *     tags: [Route]
@@ -55,7 +55,7 @@ router.get("/:id", routeController.getById);
 
 /**
  * @swagger
- * /api/v1/lk/routes:
+ * /ntc/v1/routes:
  *   get:
  *     summary: Get all routes
  *     tags: [Route]
@@ -70,7 +70,7 @@ router.get("/", routeController.getAll);
 
 /**
  * @swagger
- * /api/v1/lk/routes/{id}:
+ * /ntc/v1/routes/{id}:
  *   put:
  *     summary: Update a route by ID
  *     tags: [Route]
@@ -112,7 +112,7 @@ router.put("/:id", routeController.update);
 
 /**
  * @swagger
- * /api/v1/lk/routes/{id}:
+ * /ntc/v1/routes/{id}:
  *   delete:
  *     summary: Delete a route by ID
  *     tags: [Route]
@@ -134,7 +134,7 @@ router.delete("/:id", routeController.deleteById);
 
 /**
  * @swagger
- * /api/v1/lk/routes/number/{routeNumber}:
+ * /ntc/v1/routes/number/{routeNumber}:
  *   get:
  *     summary: Get a route by route number
  *     tags: [Route]

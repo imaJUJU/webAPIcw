@@ -12,7 +12,7 @@ const router = express.Router();
 
 /**
  * @swagger
- * /api/v1/lk/routes-availability:
+ * /ntc/v1/routes-availability:
  *   get:
  *     summary: Get all route availabilities
  *     description: Retrieve all route availability data. Optionally filter by availability status.

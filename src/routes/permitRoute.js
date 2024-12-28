@@ -24,7 +24,7 @@ const router = express.Router();
 
 /**
  * @swagger
- * /api/v1/lk/permits:
+ * /ntc/v1/permits:
  *   get:
  *     summary: Get all permits
  *     tags: [Permits]
@@ -38,7 +38,7 @@ router.get("/", getAllPermits);
 
 /**
  * @swagger
- * /api/v1/lk/permits:
+ * /ntc/v1/permits:
  *   post:
  *     summary: Create a new permit
  *     tags: [Permits]
@@ -91,7 +91,7 @@ router.post("/", createPermit);
 
 /**
  * @swagger
- * /api/v1/lk/permits/{id}:
+ * /ntc/v1/permits/{id}:
  *   get:
  *     summary: Get a permit by ID
  *     tags: [Permits]
@@ -112,7 +112,7 @@ router.get("/:id", getPermitById);
 
 /**
  * @swagger
- * /api/v1/lk/permits/{id}:
+ * /ntc/v1/permits/{id}:
  *   put:
  *     summary: Update a permit by ID
  *     tags: [Permits]
@@ -146,7 +146,7 @@ router.put("/:id", updatePermitById);
 
 /**
  * @swagger
- * /api/v1/lk/permits/{id}:
+ * /ntc/v1/permits/{id}:
  *   delete:
  *     summary: Delete a permit by ID
  *     tags: [Permits]
@@ -167,7 +167,7 @@ router.delete("/:id", deletePermitById);
 
 /**
  * @swagger
- * /api/v1/lk/permits/search/ntc/{ntcPermitNo}:
+ * /ntc/v1/permits/search/ntc/{ntcPermitNo}:
  *   get:
  *     summary: Get a permit by NTC Permit Number
  *     tags: [Permits]
@@ -188,7 +188,7 @@ router.get("/search/ntc/:ntcPermitNo", getPermitByNTCPermitNo);
 
 /**
  * @swagger
- * /api/v1/lk/permits/search/bus-number/{busNo}:
+ * /ntc/v1/permits/search/bus-number/{busNo}:
  *   get:
  *     summary: Get permits by bus number
  *     tags: [Permits]
@@ -209,7 +209,7 @@ router.get("/search/bus-number/:busNo", getPermitByBusNumber);
 
 /**
  * @swagger
- * /api/v1/lk/permits/search/service-type/{serviceType}:
+ * /ntc/v1/permits/search/service-type/{serviceType}:
  *   get:
  *     summary: Get permits by service type
  *     tags: [Permits]
@@ -230,7 +230,7 @@ router.get("/search/service-type/:serviceType", getPermitsByServiceType);
 
 /**
  * @swagger
- * /api/v1/lk/permits/search/validity/{isValid}:
+ * /ntc/v1/permits/search/validity/{isValid}:
  *   get:
  *     summary: Get permits by validity status
  *     tags: [Permits]
@@ -251,7 +251,7 @@ router.get("/search/validity/:isValid", getPermitsByValidity);
 
 /**
  * @swagger
- * /api/v1/lk/permits/search/bus-operator/{busOperatorId}:
+ * /ntc/v1/permits/search/bus-operator/{busOperatorId}:
  *   get:
  *     summary: Get permits by bus operator ID
  *     tags: [Permits]
@@ -272,7 +272,7 @@ router.get("/search/bus-operator/:busOperatorId", getPermitsByBusOperatorId);
 
 /**
  * @swagger
- * /api/v1/lk/permits/search/route/{routeId}:
+ * /ntc/v1/permits/search/route/{routeId}:
  *   get:
  *     summary: Get permits by route ID
  *     tags: [Permits]

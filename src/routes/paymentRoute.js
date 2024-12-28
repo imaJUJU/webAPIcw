@@ -17,7 +17,7 @@ const {
 
 /**
  * @swagger
- * /api/v1/lk/payment:
+ * /ntc/v1/payment:
  *   post:
  *     summary: Create a payment
  *     tags: [Payment]
@@ -53,7 +53,7 @@ router.post("/", createPayment);
 
 /**
  * @swagger
- * /api/v1/lk/payment/commuter/{commuterId}:
+ * /ntc/v1/payment/commuter/{commuterId}:
  *   delete:
  *     summary: Delete payments by commuter ID
  *     tags: [Payment]
@@ -76,7 +76,7 @@ router.delete("/commuter/:commuterId", deletePaymentsByCommuterId);
 
 /**
  * @swagger
- * /api/v1/lk/payment/reservation/{reservationId}:
+ * /ntc/v1/payment/reservation/{reservationId}:
  *   get:
  *     summary: Get payments by reservation ID
  *     tags: [Payment]
@@ -99,7 +99,7 @@ router.get("/reservation/:reservationId", getPaymentsByReservationId);
 
 /**
  * @swagger
- * /api/v1/lk/payment/commuter/{commuterId}:
+ * /ntc/v1/payment/commuter/{commuterId}:
  *   get:
  *     summary: Get payments by commuter ID
  *     tags: [Payment]
@@ -122,7 +122,7 @@ router.get("/commuter/:commuterId", getPaymentsByCommuterId);
 
 /**
  * @swagger
- * /api/v1/lk/payment/{paymentId}/reservation:
+ * /ntc/v1/payment/{paymentId}/reservation:
  *   patch:
  *     summary: Add or update a reservation ID for a payment
  *     tags: [Payment]

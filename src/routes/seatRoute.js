@@ -9,7 +9,7 @@ const {
 
 /**
  * @swagger
- * /api/v1/lk/seat/number/{number}:
+ * /ntc/v1/seat/number/{number}:
  *   get:
  *     summary: Get seat by seat number
  *     tags: [Seat]
@@ -64,7 +64,7 @@ router.get("/number/:number", getSeatByNumberController);
 
 /**
  * @swagger
- * /api/v1/lk/seat/bus/{busId}:
+ * /ntc/v1/seat/bus/{busId}:
  *   get:
  *     summary: Get seats by Bus ID with optional filters
  *     tags: [Seat]
@@ -130,7 +130,7 @@ router.get("/bus/:busId", getSeatsByBusIdController);
 
 /**
  * @swagger
- * /api/v1/lk/seat/all/{busId}:
+ * /ntc/v1/seat/all/{busId}:
  *   get:
  *     summary: Get all seats by Bus ID
  *     tags: [Seat]
@@ -181,7 +181,7 @@ router.get("/all/:busId", getAllSeatsByBusIdController);
 
 /**
  * @swagger
- * /api/v1/lk/seat:
+ * /ntc/v1/seat:
  *   post:
  *     summary: Create a new seat for a bus
  *     tags: [Seat]

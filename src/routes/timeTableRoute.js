@@ -4,7 +4,7 @@ const { getTimetablesByBusId, AddTimeForBus } = require("../Controllers/timeTabl
 
 /**
  * @swagger
- * /api/v1/lk/time-table/bus/{busId}:
+ * /ntc/v1/time-table/bus/{busId}:
  *   get:
  *     summary: Get timetable by Bus ID
  *     tags: [TimeTable]
@@ -57,7 +57,7 @@ const { getTimetablesByBusId, AddTimeForBus } = require("../Controllers/timeTabl
  */
 /**
  * @swagger
- * /api/v1/lk/time-table/bus:
+ * /ntc/v1/time-table/bus:
  *   post:
  *     summary: Create a new timetable for a bus
  *     tags: [TimeTable]
