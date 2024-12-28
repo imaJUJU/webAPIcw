@@ -1,7 +1,9 @@
 const express = require('express');
 const { getAll } = require('../controllers/routeAvailabilityController');
 
+const auth = require("../middleware/auth-middleware");
 const router = express.Router();
+router.use(auth);
 
 /**
  * @swagger

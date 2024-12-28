@@ -4,7 +4,9 @@ const {
     getTicketsByTicketReservationId
 } = require("../controllers/ticketController");
 
+const auth = require("../middleware/auth-middleware");
 const router = express.Router();
+router.use(auth);
 
 /**
  * @swagger

@@ -4,8 +4,9 @@ const {
     getLocationByRouteNo,
     getLocationByLocationName
 } = require("../controllers/locationController");
-
+const auth = require("../middleware/auth-middleware");
 const router = express.Router();
+router.use(auth);
 
 /**
  * @swagger

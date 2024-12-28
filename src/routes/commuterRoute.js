@@ -9,9 +9,9 @@ const {
     getByCity,
     getByPhoneNumberOrEmail,
 } = require("../controllers/commuterController");
-
+const auth = require("../middleware/auth-middleware");
 const router = express.Router();
-
+router.use(auth);
 /**
  * @swagger
  * /ntc/v1/commuter/create:

@@ -1,6 +1,8 @@
 const express = require("express");
-const router = express.Router();
 const { getTimetablesByBusId, AddTimeForBus } = require("../controllers/timeTableController");
+const auth = require("../middleware/auth-middleware");
+const router = express.Router();
+router.use(auth);
 
 /**
  * @swagger

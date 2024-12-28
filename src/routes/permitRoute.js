@@ -13,7 +13,9 @@ const {
     getPermitsByRouteId,
 } = require("../controllers/permitController");
 
+const auth = require("../middleware/auth-middleware");
 const router = express.Router();
+router.use(auth);
 
 /**
  * @swagger

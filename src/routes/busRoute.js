@@ -12,9 +12,10 @@ const {
     getBusByBusOperatorId,
     getBusByRouteId,
 } = require('../controllers/busController');
-const { getRouteById } = require('../dao/routeDao');
-
+const auth = require("../middleware/auth-middleware");
 const router = express.Router();
+
+router.use(auth);
 
 /**
  * @swagger

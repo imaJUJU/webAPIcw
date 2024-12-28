@@ -1,11 +1,14 @@
 const express = require("express");
-const router = express.Router();
 const {
     getSeatByNumberController,
     getSeatsByBusIdController,
     getAllSeatsByBusIdController,
     createSeatForBus
 } = require("../controllers/seatController");
+
+const auth = require("../middleware/auth-middleware");
+const router = express.Router();
+router.use(auth);
 
 /**
  * @swagger
