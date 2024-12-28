@@ -15,7 +15,7 @@ const PORT = process.env.PORT || 8080;
 
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
-    console.log(`Swagger API Documentation is available at ${process.env.NODE_ENV === 'development' ? 'http://localhost':'https://ntcseatreservation.onrender.com'}:${PORT}/api-docs`);
+    console.log(`Swagger API Documentation is available at ${process.env.NODE_ENV === 'development' ? 'http://localhost':'https://ntcseatreservation.onrender.com'}:${process.env.NODE_ENV === 'development' ? PORT : ''}/api-docs`);
 });
 
 function getRoutes(app){
