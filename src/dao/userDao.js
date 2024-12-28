@@ -1,9 +1,6 @@
-const dbConnect = require("../configuration/db-configuration");
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const User = require('../models/userModel');
-
-dbConnect();
 
 const registerUser = async ({phonenumber, username, password, role }) => {
     try {

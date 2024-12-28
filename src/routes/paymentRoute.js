@@ -6,7 +6,7 @@ const {
     deletePaymentsByCommuterId,
     getPaymentsByReservationId,
     getPaymentsByCommuterId,
-} = require("../Controllers/paymentController");
+} = require("../controllers/paymentController");
 
 /**
  * @swagger

@@ -5,7 +5,7 @@ const {
     getSeatsByBusIdController,
     getAllSeatsByBusIdController,
     createSeatForBus
-} = require("../Controllers/seatController");
+} = require("../controllers/seatController");
 
 /**
  * @swagger

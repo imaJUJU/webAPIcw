@@ -1,5 +1,5 @@
 const express = require('express');
-const { getAll } = require('../Controllers/routeAvailabilityController');
+const { getAll } = require('../controllers/routeAvailabilityController');
 
 const router = express.Router();
 

@@ -1,17 +1,8 @@
-const express = require('express');
-const {
-    createBusOperator,
-    getAllBusOperators,
-    getBusOperatorById,
-    updateBusOperatorById,
-    deleteBusOperatorById,
-    getBusOperatorByPhoneNumber,
-    getBusOperatorByUserId,
-} = require('../dao/busOperatorDao'); // Adjust path as needed
+const busOperatorService = require('../services/busOperatorService');
 
 const create = async (req, res) => {
     try {
-        const result = await createBusOperator(req.body);
+        const result = await busOperatorService.create(req.body);
         return res.status(result.success ? 201 : 400).json(result);
     } catch (error) {
         return res.status(500).json({
@@ -24,7 +15,7 @@ const create = async (req, res) => {
 
 const getAll = async (req, res) => {
     try {
-        const result = await getAllBusOperators();
+        const result = await busOperatorService.getAll();
         return res.status(result.success ? 200 : 400).json(result);
     } catch (error) {
         return res.status(500).json({
@@ -37,7 +28,7 @@ const getAll = async (req, res) => {
 
 const getById = async (req, res) => {
     try {
-        const result = await getBusOperatorById(req.params.id);
+        const result = await busOperatorService.getById(req.params.id);
         return res.status(result.success ? 200 : 404).json(result);
     } catch (error) {
         return res.status(500).json({
@@ -50,7 +41,7 @@ const getById = async (req, res) => {
 
 const updateById = async (req, res) => {
     try {
-        const result = await updateBusOperatorById(req.params.id, req.body);
+        const result = await busOperatorService.updateById(req.params.id, req.body);
         return res.status(result.success ? 200 : 404).json(result);
     } catch (error) {
         return res.status(500).json({
@@ -63,7 +54,7 @@ const updateById = async (req, res) => {
 
 const deleteById = async (req, res) => {
     try {
-        const result = await deleteBusOperatorById(req.params.id);
+        const result = await busOperatorService.deleteById(req.params.id);
         return res.status(result.success ? 200 : 404).json(result);
     } catch (error) {
         return res.status(500).json({
@@ -76,7 +67,7 @@ const deleteById = async (req, res) => {
 
 const getByPhoneNumber = async (req, res) => {
     try {
-        const result = await getBusOperatorByPhoneNumber(req.query.phoneNumber);
+        const result = await busOperatorService.getByPhoneNumber(req.query.phoneNumber);
         return res.status(result.success ? 200 : 404).json(result);
     } catch (error) {
         return res.status(500).json({
@@ -89,7 +80,7 @@ const getByPhoneNumber = async (req, res) => {
 
 const getByUserId = async (req, res) => {
     try {
-        const result = await getBusOperatorByUserId(req.query.userId);
+        const result = await busOperatorService.getByUserId(req.query.userId);
         return res.status(result.success ? 200 : 404).json(result);
     } catch (error) {
         return res.status(500).json({

@@ -8,7 +8,7 @@ const {
     getByProvince,
     getByCity,
     getByPhoneNumberOrEmail,
-} = require("../Controllers/commuterController");
+} = require("../controllers/commuterController");
 
 const router = express.Router();
 

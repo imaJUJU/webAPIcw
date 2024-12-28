@@ -2,7 +2,7 @@ const express = require("express");
 const {
     getTicketByTicketId,
     getTicketsByTicketReservationId
-} = require("../Controllers/ticketController");
+} = require("../controllers/ticketController");
 
 const router = express.Router();
 

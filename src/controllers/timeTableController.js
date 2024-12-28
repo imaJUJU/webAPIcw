@@ -1,13 +1,11 @@
-const express = require("express");
-const router = express.Router();
-const { getByBusId, createTimeTable } = require("../dao/timeTableDao");
+const timeTableService = require("../services/timeTableService");
 
 // Controller to handle GET request for timetables by Bus ID
 const getTimetablesByBusId = async (req, res) => {
     const { busId } = req.params;
 
     try {
-        const result = await getByBusId(busId);
+        const result = await timeTableService.getTimetablesByBusId(busId);
 
         if (result.success) {
             return res.status(200).json({
@@ -22,6 +20,7 @@ const getTimetablesByBusId = async (req, res) => {
             });
         }
     } catch (error) {
+        console.error('Error in getTimetablesByBusId:', error);
         return res.status(500).json({
             success: false,
             message: `An error occurred: ${error.message}`,
@@ -29,10 +28,10 @@ const getTimetablesByBusId = async (req, res) => {
     }
 };
 
+// Controller to add a timetable for a bus
 const AddTimeForBus = async (req, res) => {
     const { arrivalTime, departureTime, busId, locationId } = req.body;
 
-    // Check if all required fields are provided
     if (!arrivalTime || !departureTime || !busId || !locationId) {
         return res.status(400).json({
             success: false,
@@ -41,18 +40,15 @@ const AddTimeForBus = async (req, res) => {
     }
 
     try {
-        // Call the createTimeTable function
-        const result = await createTimeTable(arrivalTime, departureTime, busId, locationId);
+        const result = await timeTableService.AddTimeForBus({ arrivalTime, departureTime, busId, locationId });
 
         if (result.success) {
-            // Return success response with created timetable data
             return res.status(201).json({
                 success: true,
                 message: result.message,
                 data: result.data,
             });
         } else {
-            // Return error response
             return res.status(500).json({
                 success: false,
                 message: result.message,
@@ -60,7 +56,7 @@ const AddTimeForBus = async (req, res) => {
             });
         }
     } catch (error) {
-        console.error('Error in creating TimeTable:', error);
+        console.error('Error in AddTimeForBus:', error);
         return res.status(500).json({
             success: false,
             message: 'An error occurred while creating the TimeTable.',
@@ -71,5 +67,5 @@ const AddTimeForBus = async (req, res) => {
 
 module.exports = {
     getTimetablesByBusId,
-    AddTimeForBus
+    AddTimeForBus,
 };

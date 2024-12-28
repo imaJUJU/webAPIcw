@@ -1,19 +1,15 @@
-const express = require("express");
-const router = express.Router();
-const { getTicketById, getTicketsByReservationId } = require("../dao/tickectDao");
+const ticketService = require("../services/ticketService");
 
-// Controller for retrieving a seat by its number
+// Controller for retrieving a ticket by its ID
 const getTicketByTicketId = async (req, res) => {
     const { id } = req.params;
 
     try {
-        const result = await getTicketById(id);
-        if (result.success) {
-            return res.status(200).json(result);
-        } else {
-            return res.status(404).json(result);
-        }
+        const result = await ticketService.getTicketById(id);
+        const statusCode = result.success ? 200 : 404;
+        return res.status(statusCode).json(result);
     } catch (error) {
+        console.error('Error in getTicketByTicketId:', error);
         return res.status(500).json({
             success: false,
             message: `An error occurred: ${error.message}`,
@@ -21,21 +17,16 @@ const getTicketByTicketId = async (req, res) => {
     }
 };
 
-// Controller for retrieving seats by Bus ID with optional filters
+// Controller for retrieving tickets by reservation ID
 const getTicketsByTicketReservationId = async (req, res) => {
     const { reservationId } = req.params;
 
     try {
-        const result = await getTicketsByReservationId(
-            reservationId
-        );
-
-        if (result.success) {
-            return res.status(200).json(result);
-        } else {
-            return res.status(404).json(result);
-        }
+        const result = await ticketService.getTicketsByReservationId(reservationId);
+        const statusCode = result.success ? 200 : 404;
+        return res.status(statusCode).json(result);
     } catch (error) {
+        console.error('Error in getTicketsByTicketReservationId:', error);
         return res.status(500).json({
             success: false,
             message: `An error occurred: ${error.message}`,
@@ -45,5 +36,5 @@ const getTicketsByTicketReservationId = async (req, res) => {
 
 module.exports = {
     getTicketByTicketId,
-    getTicketsByTicketReservationId
+    getTicketsByTicketReservationId,
 };

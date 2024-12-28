@@ -7,7 +7,7 @@ const {
     deleteById,
     getByPhoneNumber,
     getByUserId,
-} = require('../Controllers/busOperatorController');  // Adjust path as needed
+} = require('../controllers/busOperatorController');  // Adjust path as needed
 
 const router = express.Router();
 

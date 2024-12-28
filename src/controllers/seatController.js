@@ -1,12 +1,9 @@
-const express = require("express");
-const router = express.Router();
-const { getByNumber, getSeatsByBusId, getAllSeatsByBusId, createSeat } = require("../dao/seatDao");
+const seatService = require("../services/seatService");
 
-// Function to create a timetable entry for a specific bus
+// Controller for creating a seat for a bus
 const createSeatForBus = async (req, res) => {
     const { number, isAvailable, isBookingInProgress, isWindowSeat, busId } = req.body;
 
-    // Check if all required fields are provided
     if (!number || isAvailable === undefined || isBookingInProgress === undefined || isWindowSeat === undefined || !busId) {
         return res.status(400).json({
             success: false,
@@ -15,30 +12,14 @@ const createSeatForBus = async (req, res) => {
     }
 
     try {
-        // Call the createSeat function
-        const result = await createSeat(number, isAvailable, isBookingInProgress, isWindowSeat, busId);
-
-        if (result.success) {
-            // Return success response with created seat data
-            return res.status(201).json({
-                success: true,
-                message: result.message,
-                data: result.data,
-            });
-        } else {
-            // Return error response
-            return res.status(500).json({
-                success: false,
-                message: result.message,
-                data: result.data,
-            });
-        }
+        const result = await seatService.createSeatForBus({ number, isAvailable, isBookingInProgress, isWindowSeat, busId });
+        const statusCode = result.success ? 201 : 500;
+        return res.status(statusCode).json(result);
     } catch (error) {
-        console.error('Error in creating Seat:', error);
+        console.error('Error in createSeatForBusController:', error);
         return res.status(500).json({
             success: false,
-            message: 'An error occurred while creating the Seat.',
-            data: null,
+            message: 'An error occurred while creating the seat.',
         });
     }
 };
@@ -49,13 +30,11 @@ const getSeatByNumberController = async (req, res) => {
     const { busRegNumber } = req.query;
 
     try {
-        const result = await getByNumber(number, busRegNumber);
-        if (result.success) {
-            return res.status(200).json(result);
-        } else {
-            return res.status(404).json(result);
-        }
+        const result = await seatService.getSeatByNumber(number, busRegNumber);
+        const statusCode = result.success ? 200 : 404;
+        return res.status(statusCode).json(result);
     } catch (error) {
+        console.error('Error in getSeatByNumberController:', error);
         return res.status(500).json({
             success: false,
             message: `An error occurred: ${error.message}`,
@@ -69,19 +48,17 @@ const getSeatsByBusIdController = async (req, res) => {
     const { isAvailable, isBookingInProgress, isWindowSeat } = req.query;
 
     try {
-        const result = await getSeatsByBusId(
-            busId,
-            isAvailable === undefined ? null : isAvailable === "true",
-            isBookingInProgress === undefined ? null : isBookingInProgress === "true",
-            isWindowSeat === undefined ? null : isWindowSeat === "true"
-        );
+        const filters = {
+            isAvailable: isAvailable === undefined ? null : isAvailable === "true",
+            isBookingInProgress: isBookingInProgress === undefined ? null : isBookingInProgress === "true",
+            isWindowSeat: isWindowSeat === undefined ? null : isWindowSeat === "true",
+        };
 
-        if (result.success) {
-            return res.status(200).json(result);
-        } else {
-            return res.status(404).json(result);
-        }
+        const result = await seatService.getSeatsByBusId(busId, filters);
+        const statusCode = result.success ? 200 : 404;
+        return res.status(statusCode).json(result);
     } catch (error) {
+        console.error('Error in getSeatsByBusIdController:', error);
         return res.status(500).json({
             success: false,
             message: `An error occurred: ${error.message}`,
@@ -94,13 +71,11 @@ const getAllSeatsByBusIdController = async (req, res) => {
     const { busId } = req.params;
 
     try {
-        const result = await getAllSeatsByBusId(busId);
-        if (result.success) {
-            return res.status(200).json(result);
-        } else {
-            return res.status(404).json(result);
-        }
+        const result = await seatService.getAllSeatsByBusId(busId);
+        const statusCode = result.success ? 200 : 404;
+        return res.status(statusCode).json(result);
     } catch (error) {
+        console.error('Error in getAllSeatsByBusIdController:', error);
         return res.status(500).json({
             success: false,
             message: `An error occurred: ${error.message}`,
@@ -109,8 +84,8 @@ const getAllSeatsByBusIdController = async (req, res) => {
 };
 
 module.exports = {
+    createSeatForBus,
     getSeatByNumberController,
     getSeatsByBusIdController,
     getAllSeatsByBusIdController,
-    createSeatForBus
 };

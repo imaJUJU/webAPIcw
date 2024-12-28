@@ -1,18 +1,8 @@
-const express = require('express');
-const {
-    createCommuter,
-    getAllCommuters,
-    getCommuterById,
-    updateCommuterById,
-    deleteCommuterById,
-    getCommutersByProvince,
-    getCommutersByCity,
-    getCommuterByPhoneNumberOrEmail,
-} = require('../dao/commuterDao');
+const commuterService = require('../services/commuterService');
 
 const create = async (req, res) => {
     try {
-        const result = await createCommuter(req.body);
+        const result = await commuterService.create(req.body);
         return res.status(result.success ? 201 : 400).json(result);
     } catch (error) {
         return res.status(500).json({
@@ -25,7 +15,7 @@ const create = async (req, res) => {
 
 const getAll = async (req, res) => {
     try {
-        const result = await getAllCommuters();
+        const result = await commuterService.getAll();
         return res.status(result.success ? 200 : 400).json(result);
     } catch (error) {
         return res.status(500).json({
@@ -38,7 +28,7 @@ const getAll = async (req, res) => {
 
 const getById = async (req, res) => {
     try {
-        const result = await getCommuterById(req.params.id);
+        const result = await commuterService.getById(req.params.id);
         return res.status(result.success ? 200 : 404).json(result);
     } catch (error) {
         return res.status(500).json({
@@ -51,7 +41,7 @@ const getById = async (req, res) => {
 
 const updateById = async (req, res) => {
     try {
-        const result = await updateCommuterById(req.params.id, req.body);
+        const result = await commuterService.updateById(req.params.id, req.body);
         return res.status(result.success ? 200 : 404).json(result);
     } catch (error) {
         return res.status(500).json({
@@ -64,7 +54,7 @@ const updateById = async (req, res) => {
 
 const deleteById = async (req, res) => {
     try {
-        const result = await deleteCommuterById(req.params.id);
+        const result = await commuterService.deleteById(req.params.id);
         return res.status(result.success ? 200 : 404).json(result);
     } catch (error) {
         return res.status(500).json({
@@ -77,7 +67,7 @@ const deleteById = async (req, res) => {
 
 const getByProvince = async (req, res) => {
     try {
-        const result = await getCommutersByProvince(req.query.province);
+        const result = await commuterService.getByProvince(req.query.province);
         return res.status(result.success ? 200 : 404).json(result);
     } catch (error) {
         return res.status(500).json({
@@ -90,7 +80,7 @@ const getByProvince = async (req, res) => {
 
 const getByCity = async (req, res) => {
     try {
-        const result = await getCommutersByCity(req.query.city);
+        const result = await commuterService.getByCity(req.query.city);
         return res.status(result.success ? 200 : 404).json(result);
     } catch (error) {
         return res.status(500).json({
@@ -103,7 +93,7 @@ const getByCity = async (req, res) => {
 
 const getByPhoneNumberOrEmail = async (req, res) => {
     try {
-        const result = await getCommuterByPhoneNumberOrEmail(req.query.credential);
+        const result = await commuterService.getByPhoneNumberOrEmail(req.query.credential);
         return res.status(result.success ? 200 : 404).json(result);
     } catch (error) {
         return res.status(500).json({

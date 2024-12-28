@@ -11,7 +11,7 @@ const {
     getPermitsByValidity,
     getPermitsByBusOperatorId,
     getPermitsByRouteId,
-} = require("../Controllers/permitController");
+} = require("../controllers/permitController");
 
 const router = express.Router();
 

@@ -1,17 +1,10 @@
-const {
-    createRoute,
-    getRouteById,
-    getAllRoutes,
-    updateRoute,
-    deleteRoute,
-    getRouteByNumber,
-} = require('../dao/routeDao');
+const routeService = require('../services/routeService');
 
 // Controller for creating a new route
 const create = async (req, res) => {
     try {
         const routeData = req.body;
-        const result = await createRoute(routeData);
+        const result = await routeService.createRouteService(routeData);
         return res.status(result.success ? 201 : 400).json(result);
     } catch (error) {
         return res.status(500).json({
@@ -26,7 +19,7 @@ const create = async (req, res) => {
 const getById = async (req, res) => {
     try {
         const routeId = req.params.id;
-        const result = await getRouteById(routeId);
+        const result = await routeService.getRouteByIdService(routeId);
         return res.status(result.success ? 200 : 404).json(result);
     } catch (error) {
         return res.status(500).json({
@@ -40,7 +33,7 @@ const getById = async (req, res) => {
 // Controller for retrieving all routes
 const getAll = async (req, res) => {
     try {
-        const result = await getAllRoutes();
+        const result = await routeService.getAllRoutesService();
         return res.status(result.success ? 200 : 400).json(result);
     } catch (error) {
         return res.status(500).json({
@@ -56,7 +49,7 @@ const update = async (req, res) => {
     try {
         const routeId = req.params.id;
         const routeData = req.body;
-        const result = await updateRoute(routeId, routeData);
+        const result = await routeService.updateRouteService(routeId, routeData);
         return res.status(result.success ? 200 : 404).json(result);
     } catch (error) {
         return res.status(500).json({
@@ -71,7 +64,7 @@ const update = async (req, res) => {
 const deleteById = async (req, res) => {
     try {
         const routeId = req.params.id;
-        const result = await deleteRoute(routeId);
+        const result = await routeService.deleteRouteService(routeId);
         return res.status(result.success ? 200 : 404).json(result);
     } catch (error) {
         return res.status(500).json({
@@ -86,7 +79,7 @@ const deleteById = async (req, res) => {
 const getByNumber = async (req, res) => {
     try {
         const routeNumber = req.params.routeNumber;
-        const result = await getRouteByNumber(routeNumber);
+        const result = await routeService.getRouteByNumberService(routeNumber);
         return res.status(result.success ? 200 : 404).json(result);
     } catch (error) {
         return res.status(500).json({

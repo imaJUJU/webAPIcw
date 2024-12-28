@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const { getTimetablesByBusId, AddTimeForBus } = require("../Controllers/timeTableController");
+const { getTimetablesByBusId, AddTimeForBus } = require("../controllers/timeTableController");
 
 /**
  * @swagger

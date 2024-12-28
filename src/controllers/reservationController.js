@@ -1,18 +1,9 @@
-const express = require("express");
-const router = express.Router();
-const {
-    createReservation,
-    getReservationById,
-    updateReservationById,
-    deleteReservationById,
-    getReservationsByCommuterId,
-    getReservationsByRouteId,
-} = require("../dao/reservationDao");
+const reservationService = require("../services/reservationService");
 
 // Controller for creating a new reservation
 const createReservationController = async (req, res) => {
     try {
-        const result = await createReservation(req.body);
+        const result = await reservationService.createReservation(req.body);
         if (result.success) {
             return res.status(201).json(result);
         } else {
@@ -31,7 +22,7 @@ const getReservationByIdController = async (req, res) => {
     const { id } = req.params;
 
     try {
-        const result = await getReservationById(id);
+        const result = await reservationService.getReservationById(id);
         if (result.success) {
             return res.status(200).json(result);
         } else {
@@ -50,7 +41,7 @@ const updateReservationByIdController = async (req, res) => {
     const { id } = req.params;
 
     try {
-        const result = await updateReservationById(id, req.body);
+        const result = await reservationService.updateReservationById(id, req.body);
         if (result.success) {
             return res.status(200).json(result);
         } else {
@@ -69,7 +60,7 @@ const deleteReservationByIdController = async (req, res) => {
     const { id } = req.params;
 
     try {
-        const result = await deleteReservationById(id);
+        const result = await reservationService.deleteReservationById(id);
         if (result.success) {
             return res.status(200).json(result);
         } else {
@@ -88,7 +79,7 @@ const getReservationsByCommuterIdController = async (req, res) => {
     const { commuterId } = req.params;
 
     try {
-        const result = await getReservationsByCommuterId(commuterId);
+        const result = await reservationService.getReservationsByCommuterId(commuterId);
         if (result.success) {
             return res.status(200).json(result);
         } else {
@@ -107,7 +98,7 @@ const getReservationsByRouteIdController = async (req, res) => {
     const { routeId } = req.params;
 
     try {
-        const result = await getReservationsByRouteId(routeId);
+        const result = await reservationService.getReservationsByRouteId(routeId);
         if (result.success) {
             return res.status(200).json(result);
         } else {
@@ -127,5 +118,5 @@ module.exports = {
     updateReservationByIdController,
     deleteReservationByIdController,
     getReservationsByCommuterIdController,
-    getReservationsByRouteIdController
+    getReservationsByRouteIdController,
 };

@@ -6,7 +6,7 @@ const {
     deleteReservationByIdController,
     getReservationsByCommuterIdController,
     getReservationsByRouteIdController
-} = require("../Controllers/reservationController");
+} = require("../controllers/reservationController");
 
 const router = express.Router();
 
