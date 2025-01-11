@@ -3,7 +3,7 @@ const reservationService = require("../services/reservationService");
 // Controller for creating a new reservation
 const createReservationController = async (req, res) => {
     try {
-        const result = await reservationService.createReservation(req.body);
+        const result = await reservationService.createReservationService(req.body);
         if (result.success) {
             return res.status(201).json(result);
         } else {
@@ -22,7 +22,7 @@ const getReservationByIdController = async (req, res) => {
     const { id } = req.params;
 
     try {
-        const result = await reservationService.getReservationById(id);
+        const result = await reservationService.getReservationByIdService(id);
         if (result.success) {
             return res.status(200).json(result);
         } else {
@@ -41,7 +41,7 @@ const updateReservationByIdController = async (req, res) => {
     const { id } = req.params;
 
     try {
-        const result = await reservationService.updateReservationById(id, req.body);
+        const result = await reservationService.updateReservationByIdService(id, req.body);
         if (result.success) {
             return res.status(200).json(result);
         } else {
@@ -60,7 +60,7 @@ const deleteReservationByIdController = async (req, res) => {
     const { id } = req.params;
 
     try {
-        const result = await reservationService.deleteReservationById(id);
+        const result = await reservationService.getReservationByIdService(id);
         if (result.success) {
             return res.status(200).json(result);
         } else {
@@ -79,7 +79,7 @@ const getReservationsByCommuterIdController = async (req, res) => {
     const { commuterId } = req.params;
 
     try {
-        const result = await reservationService.getReservationsByCommuterId(commuterId);
+        const result = await reservationService.getReservationsByCommuterIdService(commuterId);
         if (result.success) {
             return res.status(200).json(result);
         } else {
@@ -98,7 +98,7 @@ const getReservationsByRouteIdController = async (req, res) => {
     const { routeId } = req.params;
 
     try {
-        const result = await reservationService.getReservationsByRouteId(routeId);
+        const result = await reservationService.getReservationsByRouteIdService(routeId);
         if (result.success) {
             return res.status(200).json(result);
         } else {
